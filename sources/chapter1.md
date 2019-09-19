@@ -21,7 +21,9 @@ Donec gravida luctus blandit. Nulla tempor sit amet mi et pretium. Duis bibendum
 
 end-Definition
 
-Sed vulputate magna sed diam varius efficitur. Suspendisse arcu tortor, volutpat vel imperdiet sit amet, hendrerit non justo. Nulla varius, urna sit amet elementum egestas, diam ex luctus augue, vitae porttitor orci lorem et nisl. Mauris tellus nunc, rhoncus nec finibus euismod, hendrerit vel mi. Sed rutrum non leo non aliquam. Proin scelerisque luctus scelerisque. Ut vitae nunc facilisis, ultrices tortor hendrerit, mollis urna. Suspendisse malesuada luctus eros eget sagittis. Nunc imperdiet velit nulla.[@nietzsche]
+Sed vulputate magna sed diam varius efficitur. Suspendisse arcu tortor, volutpat vel imperdiet sit amet, hendrerit non justo. Nulla varius, urna sit amet elementum egestas, diam ex luctus augue, vitae porttitor orci lorem et nisl. Mauris tellus nunc, rhoncus nec finibus euismod, hendrerit vel mi. Sed rutrum non leo non aliquam. Proin scelerisque luctus scelerisque. 
+
+> Ut vitae nunc facilisis, ultrices tortor hendrerit, mollis urna. Suspendisse malesuada luctus eros eget sagittis. Nunc imperdiet velit nulla.[@nietzsche]
 
 # Morbi vel lorem eget risus
 
@@ -76,7 +78,13 @@ Nullam purus ligula, tristique id facilisis eget, fermentum eu ex. Sed nec enim 
 
 Sed vulputate magna sed diam varius efficitur. Suspendisse arcu tortor, volutpat vel imperdiet sit amet, hendrerit non justo. Nulla varius, urna sit amet elementum egestas, diam ex luctus augue, vitae porttitor orci lorem et nisl. Mauris tellus nunc, rhoncus nec finibus euismod, hendrerit vel mi. Sed rutrum non leo non aliquam. Proin scelerisque luctus scelerisque. Ut vitae nunc facilisis, ultrices tortor hendrerit, mollis urna. Suspendisse malesuada luctus eros eget sagittis. Nunc imperdiet velit nulla.
 
-Etiam ante eros, porttitor at dolor non, imperdiet fermentum quam. Aenean at maximus dolor. Nullam bibendum finibus magna vel interdum. Vivamus efficitur mauris diam, in molestie nisl bibendum sit amet. Duis scelerisque nibh ut auctor gravida. Maecenas nunc ex, vehicula vitae urna et, malesuada posuere arcu. Ut venenatis, urna sit amet imperdiet cursus, dui turpis lobortis nulla, vel iaculis augue sapien sed lectus. Donec consectetur nisi lacus, eu pellentesque nunc blandit sed. Cras sagittis aliquam tortor, non molestie lectus. Aenean suscipit dictum metus, id mollis quam vestibulum ut. Morbi molestie, felis nec dignissim mollis, mi orci finibus metus, a suscipit tortor lacus sodales purus. Aenean accumsan leo sit amet ante cursus ultrices. Aenean id risus at nibh fermentum suscipit vel ut risus. Fusce ornare, ante eget placerat congue, odio felis tempus ante, ac iaculis massa quam in odio. Fusce iaculis pulvinar imperdiet. Nunc interdum lorem odio, vitae rutrum odio tempus sed.
+begin+EmphBox
+
+Etiam ante eros, porttitor at dolor non, imperdiet fermentum quam. Aenean at maximus dolor. Nullam bibendum finibus magna vel interdum. Vivamus efficitur mauris diam, in molestie nisl bibendum sit amet. Duis scelerisque nibh ut auctor gravida. Maecenas nunc ex, vehicula vitae urna et, malesuada posuere arcu. Ut venenatis, urna sit amet imperdiet cursus, dui turpis lobortis nulla, vel iaculis augue sapien sed lectus. Donec consectetur nisi lacus, eu pellentesque nunc blandit sed. Cras sagittis aliquam tortor, non molestie lectus. 
+
+end+EmphBox
+
+Aenean suscipit dictum metus, id mollis quam vestibulum ut. Morbi molestie, felis nec dignissim mollis, mi orci finibus metus, a suscipit tortor lacus sodales purus. Aenean accumsan leo sit amet ante cursus ultrices. Aenean id risus at nibh fermentum suscipit vel ut risus. Fusce ornare, ante eget placerat congue, odio felis tempus ante, ac iaculis massa quam in odio. Fusce iaculis pulvinar imperdiet. Nunc interdum lorem odio, vitae rutrum odio tempus sed.
 
 Morbi eleifend congue lacinia. Nullam venenatis scelerisque augue nec congue. Sed non arcu tortor. Morbi in orci et est euismod ornare. Suspendisse diam magna, convallis vel nibh at, auctor dapibus sapien. Mauris suscipit risus sit amet lacus eleifend, eu commodo neque maximus. Mauris at finibus lorem, suscipit tempor ante. Aenean rutrum placerat pellentesque. Quisque ac maximus erat. Vestibulum dapibus mollis erat, a dignissim ligula dictum eget. Pellentesque ut eros mauris.
 
