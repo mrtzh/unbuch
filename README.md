@@ -11,8 +11,7 @@ Features:
 
 ## Example
 
-**For a real example of this in action, see
-[fairmlbook.org](https://www.fairmlbook.org).**
+Check out [fairmlbook.org](https://fairmlbook.org) for a real example.
 
 ## Getting started
 
