@@ -1,0 +1,58 @@
+\documentclass{tufte-book}
+
+\usepackage{templates/macros}
+
+\hypersetup{
+  colorlinks,
+  linkcolor = darkblue,
+  urlcolor = darkblue,
+  pdftitle = {$booktitle$},
+  pdfauthor = {$bookauthors$}
+}
+
+\title{$booktitle$}
+\author{$bookauthors$}
+
+\setcounter{tocdepth}{1}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\begin{fullwidth}
+~\vspace{2cm}
+
+\noindent{\Huge\tt $booktitle$}
+
+\vspace{1cm}
+
+\noindent{\LARGE $booksubtitle$}
+
+\vspace{3cm}
+
+\noindent{\LARGE $bookauthors$}
+
+\vspace{3cm}
+
+\noindent{\LARGE $titlepagemidnote$}
+
+\vfill
+
+\noindent Created: $lastupdate$
+
+\noindent $titlepagefootnote$
+
+\end{fullwidth}
+
+\tableofcontents
+
+$body$
+
+\listoffigures
+\listoftables
+
+% Matching \begin{fullwidth} appears in references chapter. 
+% This is a hack to make references appear in full page mode.
+\end{fullwidth}
+
+\end{document}

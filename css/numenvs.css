@@ -1,0 +1,89 @@
+/* 
+ * CSS file for numenvs.py filter.
+ */ 
+
+.numenv {
+  font-size:1.4rem;
+  width:60%;
+  margin-top: 1.4rem;
+}
+
+.numenv ul, .numenv ol {
+  width:90%;
+}
+
+.numenv p {
+  display:inline;
+  font-style:italic;
+}
+
+.numenv p em {
+  font-style:normal;
+}
+
+.numenv .title {
+  font-weight:bold;
+  margin-right:10px;
+}
+
+.numenv.EmphBox {
+
+  background-color: #FDF6E3;
+  font-style: italic;
+  padding: 10px 50px;
+  width:50%;
+}
+
+.numenv.EmphBox .title {
+  display: none;
+}
+
+.numenv.Proof {
+  border-left: 0.3rem solid #eee;
+  padding-left:2%;
+  width:58%;
+}
+
+.numenv.Proof p {
+  font-style:normal;
+}
+
+.numenv.Proof .title {
+  font-weight:normal;
+  font-style:italic;
+  border: 0px;
+  padding: 0px;
+}
+
+.numenv.Summary {
+  background-color: #fffff8;
+  margin: 50px 0px;
+  padding: 1% 5%;
+  width: 50%;
+}
+
+.numenv.Summary .title {
+  padding: 0px;
+  padding-right: 5px;
+}
+
+.numenv.fullwidth, .numenv.fullwidth table {
+  width: 100%;
+}
+
+.numenv.fullwidth .title {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .numenv {
+    width: 100%;
+  }
+  .numenv.Proof {
+    width: 98%;
+  }
+  .numenv.Summary {
+    width: 90%;
+  }
+}
+

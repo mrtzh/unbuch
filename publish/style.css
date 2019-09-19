@@ -1,0 +1,540 @@
+/* 
+ Modification of tufte-css:
+ https://github.com/edwardtufte/tufte-css
+ */
+
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+html { font-size: 12px; }
+
+body { 
+    width: 87.5%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12.5%;
+    font-family: Merriweather, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    color: #313131;
+    max-width: 1200px;
+    counter-reset: sidenote-counter figure-counter; 
+}
+
+h1, h2, h3 {
+    font-weight: 400;
+    color: #333;
+}
+
+#chapter {
+    color: #dedede;
+    letter-spacing: 0.75rem;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 5.5rem;
+}
+
+h1, h2 {
+    font-style: italic;
+}
+
+h1.title {
+     font-size: 3.5rem;
+}
+
+h1 { 
+     padding-top: 2.5rem;
+     font-size: 2.5rem; 
+}
+
+h2 {
+     padding-top: 2rem;
+     font-size: 2rem;
+}
+
+p, ol, ul, blockquote { 
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    margin-top: 2rem;
+    padding-right: 0;
+    vertical-align: baseline;
+}
+
+blockquote p { font-style:italic; }
+
+ul, ol, { 
+    margin:0; 
+    padding:0; 
+    padding-left:5%;
+}
+
+ul { list-style-type: circle; }
+
+li { padding: 0.5rem 0; }
+
+figure { 
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    max-width: 55%;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+    margin: 0 0 3em 0; 
+}
+
+caption {
+  font-size: 1.2rem;
+}
+
+caption .math, figcaption .math
+{
+  font-size: 1.1rem;
+}
+
+figure.fullwidth figcaption { margin-right: 24%; }
+
+a:link, a:visited {
+  text-decoration: none;
+  color: #00416A;
+  border-bottom:1px solid #00416A;
+}
+
+/* Sidenotes, margin notes, figures, captions */
+img { max-width: 100%; }
+
+.sidenote, .marginnote, figcaption { 
+    float: right;
+    clear: right;
+    margin-right: -60%;
+    width: 50%;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    line-height: 1.3;
+    vertical-align: baseline;
+    position: relative; 
+}
+
+figcaption {
+    margin-right: -75%;
+    width: 55%;
+    clear: both;
+}
+
+.sidenote-number { counter-increment: sidenote-counter; }
+
+figcaption { counter-increment: figure-counter; }
+
+.sidenote-number:after, .sidenote:before { 
+    content: counter(sidenote-counter) " ";
+    position: relative;
+    vertical-align: baseline; 
+}
+
+figcaption:before  { 
+    content: "Figure: " counter(figure-counter) " ";
+    position: relative;
+    vertical-align: baseline;
+    clear: right;
+    font-size: 1.2rem; 
+}
+
+.sidenote-number:after { 
+    content: counter(sidenote-counter);
+    font-size: 1rem;
+    top: -0.5rem;
+    left: 0.1rem; 
+}
+
+.sidenote:before { 
+    content: counter(sidenote-counter) " ";
+    top: -0.5rem; 
+}
+
+p, footer, pre { width: 60%; }
+
+ol, ul { width: 55%; }
+
+ul ul, ul ol, ol ul, ol ol { width: 100%; }
+
+div.fullwidth, table.fullwidth { width: 100%; }
+
+.sans { 
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    letter-spacing: .03em; 
+}
+
+pre {
+    padding:20px;
+}
+
+code, pre { 
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.0rem;
+    line-height: 1.42;
+}
+
+.sans > code { font-size: 1.2rem; }
+
+.marginnote > code, .sidenote > code { font-size: 1rem; }
+
+pre.code { font-size: 0.9rem;
+           width: 52.5%;
+           margin-left: 2.5%;
+           overflow-x: auto; 
+}
+
+pre.code.fullwidth { width: 90%; }
+
+.fullwidth { max-width: 90%;
+             clear:both; }
+
+/* The default x-height for code is slightly too large in side notes */
+.marginnote code, .sidenote code { font-size: 0.9rem; }
+
+
+#TOC li { margin:0; padding:0; }
+
+#lastupdate { margin-top:2.1rem; }
+
+#refs p { width: 90%; }
+
+table {
+    min-width: 400px;
+    border-top: 2px solid #555;
+    border-bottom: 2px solid #555;
+}
+
+th {
+    border-bottom: 1px solid #999;
+}
+
+td, th {
+    font-size: 1.4rem;
+    padding: 5px;
+    text-align: left;
+}
+span.newthought { font-variant: small-caps;
+                  font-size: 1.2em; }
+
+input.margin-toggle { display: none; }
+
+label.sidenote-number { display: inline; }
+
+label.margin-toggle:not(.sidenote-number) { display: none; }
+
+@media (max-width: 860px) { 
+    body { 
+        width: 84%;
+        padding-left: 8%;
+        padding-right: 8%; 
+    }
+    p, footer { width: 100%; }
+    ol, ul, blockquote { width: 95%; }
+    pre.code { width: 97%; }
+    figure { max-width: 90%; }
+    figcaption, figure.fullwidth figcaption { 
+        display: block;
+        margin-right: 0%;
+        float: none;
+        width: 100%;
+        max-width: none; 
+    }
+    figure:after { display: none; }
+    label.margin-toggle:not(.sidenote-number) { display: inline; }
+    .sidenote, .marginnote { display: none; }
+    .margin-toggle:checked + .sidenote,
+    .margin-toggle:checked + .marginnote { 
+        display: block;
+        float: left;
+        left: 1rem;
+        clear: both;
+        width: 95%;
+        margin: 1rem 2.5%;
+        vertical-align: baseline;
+        position: relative; 
+    }
+    label { cursor: pointer; }
+    div.table-wrapper, table { width: 85%; }
+    img { width: 100%; } 
+}
+div.sourceCode, pre:not(.sourceCode) { background: #FDF6E3; }
+pre code { color: #657B83; }
+code > span.kw { color: #859900; font-weight: normal; font-style: normal; } /* Keyword */
+code > span.dt { color: #B58900; font-weight: normal; font-style: normal; } /* DataType */
+code > span.dv { color: #2AA198; font-weight: normal; font-style: normal; } /* DecVal */
+code > span.bn { color: #2AA198; font-weight: normal; font-style: normal; } /* BaseN */
+code > span.fl { color: #2AA198; font-weight: normal; font-style: normal; } /* Float */
+code > span.ch { color: #2AA198; font-weight: normal; font-style: normal; } /* Char */
+code > span.st { color: #2AA198; font-weight: normal; font-style: normal; } /* String */
+code > span.co { color: #93A1A1; font-weight: normal; font-style: italic; } /* Comment */
+code > span.ot { color: #268BD2; font-weight: normal; font-style: normal; } /* Other */
+code > span.al { color: #DC322F; font-weight: normal; font-style: normal; } /* Alert */
+code > span.fu { color: #268BD2; font-weight: normal; font-style: normal; } /* Function */
+code > span.er { color: #DC322F; font-weight: normal; font-style: normal; } /* Error */
+code > span.wa { color: #CB4B16; font-weight: normal; font-style: italic; } /* Warning */
+code > span.cn { color: #2AA198; font-weight: normal; font-style: normal; } /* Constant */
+code > span.sc { color: #DC322F; font-weight: normal; font-style: normal; } /* SpecialChar */
+code > span.vs { color: #657B83; font-weight: normal; font-style: normal; } /* VerbatimString */
+code > span.ss { color: #DC322F; font-weight: normal; font-style: normal; } /* SpecialString */
+code > span.im { color: #657B83; font-weight: normal; font-style: normal; } /* Import */
+code > span.va { color: #268BD2; font-weight: normal; font-style: normal; } /* Variable */
+code > span.cf { color: #859900; font-weight: normal; font-style: normal; } /* ControlFlow */
+code > span.op { color: #859900; font-weight: normal; font-style: normal; } /* Operator */
+code > span.bu { color: #657B83; font-weight: normal; font-style: normal; } /* BuiltIn */
+code > span.ex { color: #657B83; font-weight: normal; font-style: normal; } /* Extension */
+code > span.pp { color: #CB4B16; font-weight: normal; font-style: normal; } /* Preprocessor */
+code > span.at { color: #657B83; font-weight: normal; font-style: normal; } /* Attribute */
+code > span.do { color: #93A1A1; font-weight: normal; font-style: italic; } /* Documentation */
+code > span.an { color: #93A1A1; font-weight: normal; font-style: italic; } /* Annotation */
+code > span.cv { color: #93A1A1; font-weight: normal; font-style: italic; } /* CommentVar */
+code > span.in { color: #93A1A1; font-weight: normal; font-style: italic; } /* Information */
+
+/* 
+ * CSS file for numenvs.py filter.
+ */ 
+
+.numenv {
+  font-size:1.4rem;
+  width:60%;
+  margin-top: 1.4rem;
+}
+
+.numenv ul, .numenv ol {
+  width:90%;
+}
+
+.numenv p {
+  display:inline;
+  font-style:italic;
+}
+
+.numenv p em {
+  font-style:normal;
+}
+
+.numenv .title {
+  font-weight:bold;
+  margin-right:10px;
+}
+
+.numenv.EmphBox {
+
+  background-color: #FDF6E3;
+  font-style: italic;
+  padding: 10px 50px;
+  width:50%;
+}
+
+.numenv.EmphBox .title {
+  display: none;
+}
+
+.numenv.Proof {
+  border-left: 0.3rem solid #eee;
+  padding-left:2%;
+  width:58%;
+}
+
+.numenv.Proof p {
+  font-style:normal;
+}
+
+.numenv.Proof .title {
+  font-weight:normal;
+  font-style:italic;
+  border: 0px;
+  padding: 0px;
+}
+
+.numenv.Summary {
+  background-color: #fffff8;
+  margin: 50px 0px;
+  padding: 1% 5%;
+  width: 50%;
+}
+
+.numenv.Summary .title {
+  padding: 0px;
+  padding-right: 5px;
+}
+
+.numenv.fullwidth, .numenv.fullwidth table {
+  width: 100%;
+}
+
+.numenv.fullwidth .title {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .numenv {
+    width: 100%;
+  }
+  .numenv.Proof {
+    width: 98%;
+  }
+  .numenv.Summary {
+    width: 90%;
+  }
+}
+
+/*
+ * Made by Erik Terwan
+ * 24th of November 2015
+ * MIT License
+ *
+ *
+ * If you are thinking of using this in
+ * production code, beware of the browser
+ * prefixes.
+ */
+
+ /*
+  * Make this absolute positioned
+  * at the top left of the screen
+  * The box that contains the list.
+  */
+
+#TOC {
+  position:absolute;
+}
+
+#TOC ul {
+   border:1px solid #eee;
+   border-top-right-radius: 10px;
+   border-bottom-right-radius: 10px;
+   position:fixed;
+   top: 50px;
+   background: #eee;
+   /* width: 115px;
+   margin: 15px 0 0 -50px;
+   padding: 0 20px 20px 20px;
+   padding-right: 30px;
+   text-decoration: none; */
+   list-style-type: none;
+   -webkit-font-smoothing: antialiased;
+   opacity: 0;
+   visibility: hidden;
+   transition: visibility 2s;
+   overflow: auto;
+   z-index:-1;
+ }
+
+ #TOC ul li {
+   text-decoration: none;
+   padding: 15px 0px 0px 5px;
+   font-size: 1.3rem;
+ }
+
+ #TOC ul li:last-child {
+   padding-bottom: 20px;
+ }
+
+#TOC ul li a
+{
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+#TOC a.toggle {
+  font-size:30px;
+  cursor:pointer;
+  position:fixed;
+  top:20px;
+  left:15px;
+  z-index: 3;
+}
+
+#menuToggle
+{
+  display: block;
+  position: fixed;
+  top: 25px;
+  left: 60px;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
+}
+
+#menuToggle a.toggle:focus {
+    outline:none;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+#menuToggle a.toggle:focus ~ ul
+{
+  outline:none;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 3;
+  visibility: visible;
+}
+
+@media (max-width: 760px) {
+  #TOC {
+     display: none;
+  }
+
+}
+
+/*@media (min-width: 800px) and (max-width: 949px) { */
+@media (min-width: 761px) {
+  #TOC ul {
+     position:fixed;
+     width: 250px;
+     margin: 15px 0 0 -60px;
+     padding: 0 5px 0 5px;
+   }
+}
+
+/*
+@media (min-width: 950px) and (max-width: 1130px) {
+  #TOC ul {
+     position:fixed;
+     width: 100px;
+     margin: 15px 0 0 -50px;
+     padding: 0 20px 20px 15px;
+   }
+}
+
+@media (min-width: 1171) and (max-width: 1399px) {
+  #TOC ul {
+     position:fixed;
+     width: 215px;
+     margin: 15px 0 0 -50px;
+     padding: 0 20px 20px 20px;
+   }
+}
+
+@media (min-width: 1400px) {
+  #TOC ul {
+     position:fixed;
+     width: 245px;
+     margin: 15px 0 0 -50px;
+     padding: 0 20px 20px 20px;
+   }
+}
+*/
+#index {
+  position:fixed;
+  top: 18px;
+  left: 57px;
+  border:none;
+  z-index:2;
+}
+
+a img {
+  width:33px;
+  height:33px;
+}
+
+@media (max-width: 860px) {
+  #index {
+     display: none;
+  }
+
+}

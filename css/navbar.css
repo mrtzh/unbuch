@@ -1,0 +1,140 @@
+/*
+ * Made by Erik Terwan
+ * 24th of November 2015
+ * MIT License
+ *
+ *
+ * If you are thinking of using this in
+ * production code, beware of the browser
+ * prefixes.
+ */
+
+ /*
+  * Make this absolute positioned
+  * at the top left of the screen
+  * The box that contains the list.
+  */
+
+#TOC {
+  position:absolute;
+}
+
+#TOC ul {
+   border:1px solid #eee;
+   border-top-right-radius: 10px;
+   border-bottom-right-radius: 10px;
+   position:fixed;
+   top: 50px;
+   background: #eee;
+   /* width: 115px;
+   margin: 15px 0 0 -50px;
+   padding: 0 20px 20px 20px;
+   padding-right: 30px;
+   text-decoration: none; */
+   list-style-type: none;
+   -webkit-font-smoothing: antialiased;
+   opacity: 0;
+   visibility: hidden;
+   transition: visibility 2s;
+   overflow: auto;
+   z-index:-1;
+ }
+
+ #TOC ul li {
+   text-decoration: none;
+   padding: 15px 0px 0px 5px;
+   font-size: 1.3rem;
+ }
+
+ #TOC ul li:last-child {
+   padding-bottom: 20px;
+ }
+
+#TOC ul li a
+{
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+#TOC a.toggle {
+  font-size:30px;
+  cursor:pointer;
+  position:fixed;
+  top:20px;
+  left:15px;
+  z-index: 3;
+}
+
+#menuToggle
+{
+  display: block;
+  position: fixed;
+  top: 25px;
+  left: 60px;
+  z-index: 2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+
+}
+
+#menuToggle a.toggle:focus {
+    outline:none;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+#menuToggle a.toggle:focus ~ ul
+{
+  outline:none;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 3;
+  visibility: visible;
+}
+
+@media (max-width: 760px) {
+  #TOC {
+     display: none;
+  }
+
+}
+
+/*@media (min-width: 800px) and (max-width: 949px) { */
+@media (min-width: 761px) {
+  #TOC ul {
+     position:fixed;
+     width: 250px;
+     margin: 15px 0 0 -60px;
+     padding: 0 5px 0 5px;
+   }
+}
+
+/*
+@media (min-width: 950px) and (max-width: 1130px) {
+  #TOC ul {
+     position:fixed;
+     width: 100px;
+     margin: 15px 0 0 -50px;
+     padding: 0 20px 20px 15px;
+   }
+}
+
+@media (min-width: 1171) and (max-width: 1399px) {
+  #TOC ul {
+     position:fixed;
+     width: 215px;
+     margin: 15px 0 0 -50px;
+     padding: 0 20px 20px 20px;
+   }
+}
+
+@media (min-width: 1400px) {
+  #TOC ul {
+     position:fixed;
+     width: 245px;
+     margin: 15px 0 0 -50px;
+     padding: 0 20px 20px 20px;
+   }
+}
+*/
