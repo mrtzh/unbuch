@@ -1,7 +1,7 @@
 # Edit variables below to customize book
-booktitle = Das Unbuch
-booksubtitle = Lest it be written
-bookauthors = Arthur von Nichts, Brunhilde zu Niemanden
+booktitle = Book title
+booksubtitle = Book subtitle
+bookauthors = Author 1, Author 2
 titlepagemidnote = Incomplete working draft --- DO NOT SHARE
 titlepagefootnote = Latest public version available at \url{about:blank}
 bookpdffilename = book.pdf
