@@ -1,5 +1,3 @@
-# Unbuch
-
 A simple pandoc setup to compile a book from markdown sources into html pages and pdf based on pandoc and python filters.
 
 Features:
@@ -9,11 +7,11 @@ Features:
 * Environments
 * HTML and PDF output
 
-## Example
+# Example
 
 Check out [fairmlbook.org](https://fairmlbook.org) for a real example.
 
-## Getting started
+# Getting started
 
 1. Insall [pandoc](https://pandoc.org/) v2.2 or higher and [pandoc-citeproc](https://github.com/jgm/pandoc-citeproc)
 2. Make sure you have python 2.7 installed with [pandocfilters](https://github.com/jgm/pandocfilters) package
@@ -25,7 +23,7 @@ Check out [fairmlbook.org](https://fairmlbook.org) for a real example.
 
 Find the compiled results in `publish/` directory.
 
-## Dependencies
+# Dependencies
 
 - `pandoc` v2.2 or higher
 - `python` 2.7 with `pandocfilters` installed
@@ -33,7 +31,7 @@ Find the compiled results in `publish/` directory.
 The workflow was developed and tested with:
 - pandoc v2.2, python 2.7, Ubuntu 18.04 LTS
 
-## Special files and folders
+# Special files and folders
 
 * `assets` -- Put all files linked to from the sources here
 * `css` -- All css files
@@ -42,7 +40,7 @@ The workflow was developed and tested with:
 * `templates` -- Pandoc template files
 * `publish` -- Contains compiled pages and pdfs ready for publishing. DO NOT EDIT.
 
-## Credits
+# Credits
 
 The setup is based on:
 
@@ -50,7 +48,7 @@ The setup is based on:
 * [tufte-css](https://github.com/edwardtufte/tufte-css)
 * [pandoc-sidenote](https://github.com/jez/pandoc-sidenote)
 
-## Current issues
+# Current issues
 
 See `Issues` tab for current issues and ways of contributing to the project.
 
