@@ -15,7 +15,7 @@ Check out [fairmlbook.org](https://fairmlbook.org) for a real example.
 
 ## Getting started
 
-1. Insall [pandoc](https://pandoc.org/) v2.2 or higher
+1. Insall [pandoc](https://pandoc.org/) v2.2 or higher and [pandoc-citeproc](https://github.com/jgm/pandoc-citeproc)
 2. Make sure you have python 2.7 installed with [pandocfilters](https://github.com/jgm/pandocfilters) package
 3. Clone the repository
 4. Customize your book by setting up variables in `Makefile`.
