@@ -15,9 +15,10 @@ Check out [fairmlbook.org](https://fairmlbook.org) for a real example.
 
 1. Install [pandoc](https://pandoc.org/) v2.2 or higher and [pandoc-citeproc](https://github.com/jgm/pandoc-citeproc)
 2. Make sure you have python 2.7 installed with [pandocfilters](https://github.com/jgm/pandocfilters) package
-3. Clone the repository
-4. Customize your book by setting up variables in `Makefile`.
-5. Type `make` to build both pdf and html files.
+3. Make sure you have `libbrsvg` installed. For Mac `brew install librsvg`, Ubuntu `apt install librsvg2-bin`
+4. Clone the repository
+5. Customize your book by setting up variables in `Makefile`.
+6. Type `make` to build both pdf and html files.
   - To build html only, type `make html`.
   - To build pdf only, type `make pdf`.
 
