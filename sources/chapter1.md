@@ -36,7 +36,7 @@ $$
 
 Cras sagittis aliquam tortor, non molestie lectus. Aenean suscipit dictum metus, id mollis quam vestibulum ut. Morbi molestie, felis nec dignissim mollis, mi orci finibus metus, a suscipit tortor lacus sodales purus. Aenean accumsan leo sit amet ante cursus ultrices. Aenean id risus at nibh fermentum suscipit vel ut risus.[^logit] Fusce ornare, ante eget placerat congue, odio felis tempus ante, ac iaculis massa quam in odio. Fusce iaculis pulvinar imperdiet. Nunc interdum lorem odio, vitae rutrum odio tempus sed.
 
-[^logit]: ![Plot of the logit function](assets/logit.svg)
+[^logit]: ![Plot of the logit function](assets/logit.png)
 
 begin-Definition
 
@@ -69,7 +69,7 @@ Vestibulum a arcu interdum, sagittis purus id, tincidunt eros. Nam et metus at m
 
 Sed pharetra urna elit, sit amet mattis massa tristique ac. Phasellus fringilla massa ligula, eu mattis libero bibendum non. Pellentesque faucibus dui et ligula hendrerit, nec condimentum diam gravida. Vestibulum in vehicula leo. Quisque sodales tincidunt tincidunt. Ut non aliquet massa, sit amet lobortis libero. Sed placerat, leo consequat lacinia cursus, justo libero gravida turpis, ut condimentum risus orci ac nibh. Proin mattis turpis ut diam feugiat, et eleifend diam cursus. Cras congue fermentum est vitae bibendum. Nam dapibus orci ut neque vehicula vulputate. Praesent non consequat nibh. Praesent leo sapien, cursus ut posuere et, ornare eu turpis.
 
-![Fancy plot](assets/bmi.svg){width="75%"}
+![Fancy plot](assets/bmi.png){width="75%"}
 
 Nullam purus ligula, tristique id facilisis eget, fermentum eu ex. Sed nec enim quis justo sagittis faucibus. Nulla sagittis congue lacus, non semper enim dignissim ut. Maecenas a mattis libero. Praesent egestas ligula erat, id venenatis nisi euismod sit amet. Etiam id diam a mi iaculis fermentum. Aenean rhoncus luctus rhoncus. Etiam non arcu egestas, pretium magna in, mollis urna. Vestibulum feugiat quam venenatis erat laoreet, ut sodales ex lobortis. Pellentesque id scelerisque ex. Pellentesque at diam ligula. Aliquam a est enim. 
 
