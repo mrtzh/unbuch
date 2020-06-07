@@ -60,7 +60,7 @@ publish/%.html: sources/%.md templates/tufte.html5 $(STYLES) Makefile references
     --strip-comments \
     --katex \
     --toc-depth=2 \
-    --from markdown+smart+tex_math_single_backslash \
+    --from markdown-markdown_in_html_blocks+raw_html+tex_math_single_backslash \
     --section-divs \
     --table-of-contents \
     --filter ./filters/sidenote.py \

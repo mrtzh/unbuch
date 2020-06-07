@@ -28,10 +28,7 @@ Find the compiled results in `publish/` directory.
 # Dependencies
 
 - `pandoc` v2.2 or higher
-- `python` 2.7 with `pandocfilters` installed
-
-The workflow was developed and tested with:
-- pandoc v2.2, python 2.7, Ubuntu 18.04 LTS
+- `python` 3.5 or higher with `pandocfilters` installed
 
 # Special files and folders
 

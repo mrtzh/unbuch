@@ -36,7 +36,9 @@ $$
 
 Cras sagittis aliquam tortor, non molestie lectus. Aenean suscipit dictum metus, id mollis quam vestibulum ut. Morbi molestie, felis nec dignissim mollis, mi orci finibus metus, a suscipit tortor lacus sodales purus. Aenean accumsan leo sit amet ante cursus ultrices. Aenean id risus at nibh fermentum suscipit vel ut risus.[^logit] Fusce ornare, ante eget placerat congue, odio felis tempus ante, ac iaculis massa quam in odio. Fusce iaculis pulvinar imperdiet. Nunc interdum lorem odio, vitae rutrum odio tempus sed.
 
-[^logit]: ![Plot of the logit function](assets/logit.png)
+[^logit]: 
+Logit function
+![Plot of the logit function](assets/logit.png)
 
 begin-Definition
 
