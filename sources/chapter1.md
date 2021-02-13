@@ -1,52 +1,113 @@
 ---
 chapter-number: 1
-title: Lorem ipsum
+title: A short manual
 link-citations: true
 reference-section-title: References
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut tellus venenatis, facilisis diam ut, rutrum lectus. Praesent eu eros elit. Donec tempor sagittis mi at elementum. Pellentesque in nunc erat. Praesent laoreet nisl eu fringilla varius. Proin non quam eu mauris eleifend rhoncus. Morbi lobortis quam justo, tincidunt iaculis metus pellentesque vitae.[^sidenote1]
+Below are several features available with the Unbuch setup. Unbuch uses the `pandoc` markdown syntax. Please see the pandoc documentation for details on that.
 
-[^sidenote1]: Aenean id risus at nibh fermentum suscipit vel ut risus. Fusce ornare, ante eget placerat congue, odio felis tempus ante, ac iaculis massa quam in odio. Fusce iaculis pulvinar imperdiet. Nunc interdum lorem odio, vitae rutrum odio tempus sed.
+# Numbered and unnumbered margin notes
 
-Nulla facilisi. Sed elementum nunc ac aliquet accumsan. Vivamus elementum commodo ornare. Pellentesque eros dui, pharetra nec pellentesque et, ullamcorper sit amet leo. Duis non ullamcorper sem. Fusce ultricies ligula vitae consectetur varius. Aliquam tortor purus, fringilla vel consequat a, egestas id elit. Pellentesque et varius sem. Etiam eget enim nec ante placerat fermentum. Pellentesque vel leo purus. Aliquam ac pellentesque nulla. Etiam diam lectus, condimentum in elit id, consequat maximus dui.[@hegel]
+To create a side note, use this syntax:[^sidenote1]
 
-$$ \langle x, y \rangle \le \|x\|\cdot\|y\| $$
+[^sidenote1]:
+  Aenean id risus at nibh fermentum suscipit vel
+  risus. Fusce ornare, ante eget placerat congue.
 
-Cras leo dui, porta vel leo ac, vulputate ultrices tortor. Sed eu tellus tincidunt libero molestie ullamcorper. Nulla pharetra lectus id suscipit posuere. Nunc quis lectus eu lectus malesuada commodo. Cras sit amet elit eu tortor bibendum commodo eu at purus. Donec lacinia cursus turpis eu pulvinar. In luctus, nibh nec feugiat posuere, quam tortor imperdiet risus, eget mattis enim est sit amet tortor. Etiam a euismod velit. Donec mi nunc, rutrum at elit vitae, congue dapibus urna. Praesent in justo a eros accumsan tempor vitae id turpis. Donec ultricies venenatis risus a lobortis. Proin eleifend vulputate vestibulum. Suspendisse non nisi id arcu luctus tristique sagittis ultricies felis. Aliquam erat volutpat. Suspendisse ultrices vehicula sem eu sagittis. Curabitur ex elit, vulputate at nisl ut, auctor viverra orci.
+```
+To create a side note, use this syntax:[^sidenote1]
+
+[^sidenote1]: 
+  Aenean id risus at nibh fermentum suscipit vel
+  risus. Fusce ornare, ante eget placerat congue.
+```
+
+To create an unnumbered margin notes, 
+prefix the text with `{-}`.[^unnumbered-marginnote]
+
+[^unnumbered-marginnote]:
+  {-} Aenean id risus at nibh fermentum suscipit vel
+  risus. Fusce ornare, ante eget placerat congue.
+  
+```
+To create an unnumbered margin notes, 
+prefix the text with `{-}`.[^unnumbered-marginnote]
+
+[^unnumbered-marginnote]:
+  {-} Aenean id risus at nibh fermentum suscipit vel
+  risus. Fusce ornare, ante eget placerat congue.
+```
+
+# Math formulas
+
+You can use inline and display math environments. These are handled by `pdflatex` when compiling to pdf, and they're handled by `katex` when when displaying html. Use a single `$` for inline math, and a double `$$` for display.
+
+$$ 
+  \langle x, y \rangle \le \|x\|\cdot\|y\| 
+$$
+
+
+# Custom environments
+
+Unbuch supports custom numbered and unnumbered environments.
 
 begin-Definition
 
-Donec gravida luctus blandit. Nulla tempor sit amet mi et pretium. Duis bibendum, nulla ut malesuada efficitur, mauris lorem tempus augue, eget ultricies mauris lectus vitae dui. Etiam est dui, luctus sit amet nulla sit amet, lacinia sodales justo. Morbi eget lobortis elit, sit amet iaculis augue.
+We call a thing a thing.
 
 end-Definition
 
-Sed vulputate magna sed diam varius efficitur. Suspendisse arcu tortor, volutpat vel imperdiet sit amet, hendrerit non justo. Nulla varius, urna sit amet elementum egestas, diam ex luctus augue, vitae porttitor orci lorem et nisl. Mauris tellus nunc, rhoncus nec finibus euismod, hendrerit vel mi. Sed rutrum non leo non aliquam. Proin scelerisque luctus scelerisque. 
+Here is an unnumbered environment.
 
-> Ut vitae nunc facilisis, ultrices tortor hendrerit, mollis urna. Suspendisse malesuada luctus eros eget sagittis. Nunc imperdiet velit nulla.[@nietzsche]
+begin+Example
 
-# Morbi vel lorem eget risus
+Something else.
 
-Etiam ante eros, porttitor at dolor non, imperdiet fermentum quam. Aenean at maximus dolor. Nullam bibendum finibus magna vel interdum. Vivamus efficitur mauris diam, in molestie nisl bibendum sit amet. Duis scelerisque nibh ut auctor gravida. Maecenas nunc ex, vehicula vitae urna et, malesuada posuere arcu. Ut venenatis, urna sit amet imperdiet cursus, dui turpis lobortis nulla, vel iaculis augue sapien sed lectus. Donec consectetur nisi lacus, eu pellentesque nunc blandit sed. 
+end+Example
 
-$$
-e^{i\pi} + 1 = 0
-$$
+For this to work property, the environment `Definition` must be defined as a latex macro. For html these are automatically converted to div classes that can be styled via css. 
+
+# Citations
+
+Citations go in the margin where they are cited and also appear at the end of the document.[@hegel]
+
+The syntax for citations is `[@hegel]`. We can also cite multiple papers at once.[@hegel; @nietzsche]. Simply separate multiple citations with a semicolon: `[@hegel; @nietzsche]`. You see that repeated citations are abbreviated to save space.
 
 
-Cras sagittis aliquam tortor, non molestie lectus. Aenean suscipit dictum metus, id mollis quam vestibulum ut. Morbi molestie, felis nec dignissim mollis, mi orci finibus metus, a suscipit tortor lacus sodales purus. Aenean accumsan leo sit amet ante cursus ultrices. Aenean id risus at nibh fermentum suscipit vel ut risus.[^logit] Fusce ornare, ante eget placerat congue, odio felis tempus ante, ac iaculis massa quam in odio. Fusce iaculis pulvinar imperdiet. Nunc interdum lorem odio, vitae rutrum odio tempus sed.
+# Figures and images
+
+
+
+Ideally, create images in both SVG and PDF format. Include them by their `.svg` extension. The compiler will figure out to subsitute the pdf version for the pdf compilation. If vector graphics are not available use JPG or PNG. Those are the only other two formats that are supported.
+
+![Fancy plot](assets/perceptron.svg)
+
+This image was included as:
+
+```
+![Fancy plot](assets/perceptron.svg)
+```
+
+Figures and images can go in the margin.[^logit] 
 
 [^logit]: 
-Logit function
-![Plot of the logit function](assets/logit.png)
+  Here's an image in the margin.
+  ![Plot of the logistic loss](assets/logistic_loss.svg)
 
-begin-Definition
+You can specify the width of a figure by appending something like `{width="50%"}`.
 
-Morbi eleifend congue lacinia. Nullam venenatis scelerisque augue nec congue. Sed non arcu tortor. Morbi in orci et est euismod ornare. Suspendisse diam magna, convallis vel nibh at, auctor dapibus sapien. Mauris suscipit risus sit amet lacus eleifend, eu commodo neque maximus. 
+![Half width plot](assets/logistic_loss.svg){width="50%"}
 
-end-Definition
+This image was included as:
 
-Mauris at finibus lorem, suscipit tempor ante. Aenean rutrum placerat pellentesque. Quisque ac maximus erat. Vestibulum dapibus mollis erat, a dignissim ligula dictum eget. Pellentesque ut eros mauris.
+```
+![Half width plot](assets/logistic_loss.svg){width="50%"}
+```
+
+# Tables
+
+Tables work just as they would in pandoc markdown. Nothing is different here.
 
    A   B   C 
   --- --- ---
@@ -57,7 +118,13 @@ Mauris at finibus lorem, suscipit tempor ante. Aenean rutrum placerat pellentesq
 
   : A table of something
 
-Morbi vel lorem eget risus placerat congue. Integer dictum feugiat lacus, sit amet feugiat purus cursus quis. Praesent nec libero et urna feugiat maximus in non magna. Morbi in tincidunt felis. Nulla maximus iaculis magna, in semper lectus sollicitudin vitae. Donec gravida luctus blandit. Nulla tempor sit amet mi et pretium. Duis bibendum, nulla ut malesuada efficitur, mauris lorem tempus augue, eget ultricies mauris lectus vitae dui. Etiam est dui, luctus sit amet nulla sit amet, lacinia sodales justo. Morbi eget lobortis elit, sit amet iaculis augue.
+# Cross references
+
+Unbuch offers a minimalistic syntax for cross references. These aren't full-fledged latex cross references and don't work the same way. You can introduce a cross reference at any point by writing `@{counter:name}`. This will assign a number. You can retrieve this number by writing `@{counter:name}` again later on. You can increment the counter by using the same counter multiple times, e.g., by writing `@{theorem:abc}` and `@{theorem:planar}`. Here's an example:s
+
+This markdown snippet will turn out as follows:
+
+@{thm:something}
 
 begin-Theorem
 
@@ -65,31 +132,21 @@ Curabitur at vestibulum velit. Ut ac turpis purus.
 
 end-Theorem
 
-Vestibulum a arcu interdum, sagittis purus id, tincidunt eros. Nam et metus at mauris aliquam vehicula. Donec velit leo, cursus convallis est quis, viverra condimentum velit. Donec vitae mauris sit amet leo egestas bibendum. Fusce lacinia a purus in suscipit. Mauris feugiat tortor et sem dictum, a fringilla lectus pretium. Ut quis congue nulla. Praesent auctor tristique lectus, nec facilisis tellus dignissim vitae. Nulla elementum felis a sollicitudin lobortis.
+@{thm:deep}
 
-# Nullam purus ligula
+begin+Theorem
 
-Sed pharetra urna elit, sit amet mattis massa tristique ac. Phasellus fringilla massa ligula, eu mattis libero bibendum non. Pellentesque faucibus dui et ligula hendrerit, nec condimentum diam gravida. Vestibulum in vehicula leo. Quisque sodales tincidunt tincidunt. Ut non aliquet massa, sit amet lobortis libero. Sed placerat, leo consequat lacinia cursus, justo libero gravida turpis, ut condimentum risus orci ac nibh. Proin mattis turpis ut diam feugiat, et eleifend diam cursus. Cras congue fermentum est vitae bibendum. Nam dapibus orci ut neque vehicula vulputate. Praesent non consequat nibh. Praesent leo sapien, cursus ut posuere et, ornare eu turpis.
+$1 + 1 = 2$
 
-![Fancy plot](assets/bmi.png){width="75%"}
+end+Theorem
 
-Nullam purus ligula, tristique id facilisis eget, fermentum eu ex. Sed nec enim quis justo sagittis faucibus. Nulla sagittis congue lacus, non semper enim dignissim ut. Maecenas a mattis libero. Praesent egestas ligula erat, id venenatis nisi euismod sit amet. Etiam id diam a mi iaculis fermentum. Aenean rhoncus luctus rhoncus. Etiam non arcu egestas, pretium magna in, mollis urna. Vestibulum feugiat quam venenatis erat laoreet, ut sodales ex lobortis. Pellentesque id scelerisque ex. Pellentesque at diam ligula. Aliquam a est enim. 
+We saw in Theorem @{thm:deep} that $1+1=2$.
 
 
-## Etiam ante eros
+This also works with equations.
 
-Sed vulputate magna sed diam varius efficitur. Suspendisse arcu tortor, volutpat vel imperdiet sit amet, hendrerit non justo. Nulla varius, urna sit amet elementum egestas, diam ex luctus augue, vitae porttitor orci lorem et nisl. Mauris tellus nunc, rhoncus nec finibus euismod, hendrerit vel mi. Sed rutrum non leo non aliquam. Proin scelerisque luctus scelerisque. Ut vitae nunc facilisis, ultrices tortor hendrerit, mollis urna. Suspendisse malesuada luctus eros eget sagittis. Nunc imperdiet velit nulla.
+@{eq:blah}
 
-begin+EmphBox
-
-Etiam ante eros, porttitor at dolor non, imperdiet fermentum quam. Aenean at maximus dolor. Nullam bibendum finibus magna vel interdum. Vivamus efficitur mauris diam, in molestie nisl bibendum sit amet. Duis scelerisque nibh ut auctor gravida. Maecenas nunc ex, vehicula vitae urna et, malesuada posuere arcu. Ut venenatis, urna sit amet imperdiet cursus, dui turpis lobortis nulla, vel iaculis augue sapien sed lectus. Donec consectetur nisi lacus, eu pellentesque nunc blandit sed. Cras sagittis aliquam tortor, non molestie lectus. 
-
-end+EmphBox
-
-Aenean suscipit dictum metus, id mollis quam vestibulum ut. Morbi molestie, felis nec dignissim mollis, mi orci finibus metus, a suscipit tortor lacus sodales purus. Aenean accumsan leo sit amet ante cursus ultrices. Aenean id risus at nibh fermentum suscipit vel ut risus. Fusce ornare, ante eget placerat congue, odio felis tempus ante, ac iaculis massa quam in odio. Fusce iaculis pulvinar imperdiet. Nunc interdum lorem odio, vitae rutrum odio tempus sed.
-
-Morbi eleifend congue lacinia. Nullam venenatis scelerisque augue nec congue. Sed non arcu tortor. Morbi in orci et est euismod ornare. Suspendisse diam magna, convallis vel nibh at, auctor dapibus sapien. Mauris suscipit risus sit amet lacus eleifend, eu commodo neque maximus. Mauris at finibus lorem, suscipit tempor ante. Aenean rutrum placerat pellentesque. Quisque ac maximus erat. Vestibulum dapibus mollis erat, a dignissim ligula dictum eget. Pellentesque ut eros mauris.
-
-# Morbi eget lobortis elit
-
-Morbi vel lorem eget risus placerat congue. Integer dictum feugiat lacus, sit amet feugiat purus cursus quis. Praesent nec libero et urna feugiat maximus in non magna. Morbi in tincidunt felis. Nulla maximus iaculis magna, in semper lectus sollicitudin vitae. Donec gravida luctus blandit. Nulla tempor sit amet mi et pretium. Duis bibendum, nulla ut malesuada efficitur, mauris lorem tempus augue, eget ultricies mauris lectus vitae dui. Etiam est dui, luctus sit amet nulla sit amet, lacinia sodales justo. Morbi eget lobortis elit, sit amet iaculis augue.
+$$
+1 + 1 = 2\qquad(@{eq:blah})
+$$

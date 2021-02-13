@@ -135,7 +135,7 @@
   <macro name="contributors-note">
     <group delimiter=" ">
       <names variable="author">
-        <name and="text" sort-separator=", " delimiter=", "/>
+        <name form="short" and="text" sort-separator=", " delimiter=", "/>
         <label form="short" prefix=", "/>
         <substitute>
           <names variable="editor"/>
@@ -176,6 +176,7 @@
   </macro>
   <macro name="contributors">
     <group delimiter=". ">
+      <!-- names variable="author" font-weight="bold"-->
       <names variable="author">
         <name name-as-sort-order="first" and="text" sort-separator=", " delimiter=", " delimiter-precedes-last="always"/>
         <substitute>

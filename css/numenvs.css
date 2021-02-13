@@ -1,5 +1,5 @@
 /* 
- * CSS file for numenvs.py filter.
+ * Stylesheet for environments created by numenvs.py filter.
  */ 
 
 .numenv {
@@ -87,3 +87,16 @@
   }
 }
 
+.numenv.Algorithm {
+  padding: 5px;
+  border: 2px solid #ddd;
+  border-top-left-radius: 10px;
+}
+
+.numenv.Algorithm .title {
+  font-family:monospace;
+}
+
+.numenv .title {
+  border: none;
+}

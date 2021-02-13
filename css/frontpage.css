@@ -1,0 +1,91 @@
+/*
+ * Stylesheet controlling the look of the front page at index.html
+ */
+
+
+.booktitle {
+  color:#222;
+  font-size: 3.8rem;
+  font-style: normal;
+  text-transform: uppercase;
+  font-family:monospace;
+  margin-bottom:0;
+}
+
+.booksubtitle {
+  font-size:3rem;
+  font-style: normal;
+  margin:0;
+  font-family:monospace;
+}
+
+.bookauthor {
+  font-size:3.5rem;
+  margin:40px 0;
+  margin-bottom:80px;
+}
+
+.bookcontents {
+  font-size:3rem;
+}
+
+.booklink {
+  font-size:2.5rem;
+}
+
+#frontpage ul {
+  width:100%;
+}
+
+#frontpage ol li {
+  font-size:1.8rem;
+}
+
+#frontpage ul li {
+  font-size:2rem;
+  list-style: none;
+  padding:10px 0;
+}
+
+#frontpage ol {
+  width:100%;
+  padding-left:0px;
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+#frontpage ol li {
+  counter-increment: my-awesome-counter;
+}
+#frontpage ol li::before {
+  content: counter(my-awesome-counter) " ";
+  color: #ccc;
+  font-weight: bold;
+  padding-right:10px;
+  text-align:right;
+}
+
+a:hover {
+  background-color: #FDF6E3;
+}
+
+@media (max-width: 860px) {
+  .booktitle {
+    font-size:2.5rem;
+  }
+  .booksubtitle {
+    font-size:2rem;
+  }
+  .bookauthor {
+    font-size:2.3rem;
+  }
+  .bookcontents {
+    font-size:2rem;
+  }
+  .booklink {
+    font-size:1.65rem;
+  }
+  #frontpage li {
+    padding-top:0px;
+    font-size:1.65rem;
+  }
+}

@@ -1,6 +1,91 @@
 \documentclass{tufte-book}
 
-\usepackage{templates/macros}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+
+\definecolor{darkblue}{HTML}{00416A}
+
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{boxedminipage}
+\usepackage{microtype}
+\usepackage{hyperref}
+% attempts to prevent margin figures from being cut off
+\usepackage{marginfix}
+\usepackage[morefloats=100]{morefloats}
+
+
+\newtheorem{Definition}{Definition}
+\newtheorem{Theorem}{Theorem}
+\newtheorem{Lemma}{Lemma}
+\newtheorem{Exercise}{Exercise}
+\newtheorem{Fact}{Fact}
+\newtheorem{Proposition}{Proposition}
+\newtheorem{Assumption}{Assumption}
+\newtheorem*{Example}{Example}
+\newenvironment{Algorithm}{\begin{center}\begin{boxedminipage}{0.92\textwidth}}{\end{boxedminipage}\end{center}}
+\newenvironment{Proof}{\begin{proof}}{\end{proof}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+% DO NOT DELETE. Required by pandoc.
+% Pandoc citation processing
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+% for Pandoc 2.8 to 2.10.1
+\newenvironment{cslreferences}%
+  {\setlength{\parindent}{0pt}%
+  \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces}%
+  {\par}
+% For Pandoc 2.11+
+\newenvironment{CSLReferences}[3] % #1 hanging-ident, #2 entry sp
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set line spacing
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#3\baselineskip}
+  \fi
+ }%
+ {
+ }
+\usepackage{calc} % for \widthof, \maxof
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\maxof{\widthof{#1}}{\csllabelwidth}}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth}{#1}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\input{templates/shared-macros}
+
+$if(book-layout)$
+
+\usepackage{ifthen}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
+% chapter format
+\titleformat{\chapter}
+  {\huge\rmfamily\itshape} % format applied to label+text
+  {\thechapter} % label
+  {0pt} % horizontal separation between label and title body
+  {\ifshowchapternumber
+   \textit{\textbf{\thechapter}}\linebreak\noindent
+   \else
+   \fi
+   \setcounter{chapter}{\thechapter+1} }% before the title body
+  []% after the title body
 
 \hypersetup{
   colorlinks,
@@ -15,44 +100,80 @@
 
 \setcounter{tocdepth}{1}
 
+\newif\ifshowchapternumber
+
 \begin{document}
+
+\frontmatter
+
+\showchapternumberfalse
 
 \thispagestyle{empty}
 
 \begin{fullwidth}
-~\vspace{2cm}
 
-\noindent{\Huge\tt $booktitle$}
+~\vspace{4cm}
+
+\noindent{\Huge\tt\uppercase{$booktitle$}}
 
 \vspace{1cm}
 
-\noindent{\LARGE $booksubtitle$}
+\noindent{\huge\tt $booksubtitle$}
 
 \vspace{3cm}
 
-\noindent{\LARGE $bookauthors$}
+\noindent{\huge\it $bookauthors$}
 
-\vspace{3cm}
+\pagebreak
 
-\noindent{\LARGE $titlepagemidnote$}
-
-\vfill
+\thispagestyle{empty}
 
 \noindent Created: $lastupdate$
-
-\noindent $titlepagefootnote$
 
 \end{fullwidth}
 
 \tableofcontents
 
+\mainmatter
+
+\showchapternumbertrue
+
 $body$
+
+\backmatter
+
+\showchapternumberfalse
 
 \listoffigures
 \listoftables
 
-% Matching \begin{fullwidth} appears in references chapter. 
-% This is a hack to make references appear in full page mode.
-\end{fullwidth}
+$endif$
+
+$if(chapter-layout)$
+
+\hypersetup{
+  colorlinks,
+  linkcolor = darkblue,
+  urlcolor = darkblue,
+  pdftitle = {$booktitle$ - $title$},
+  pdfauthor = {$bookauthors$}
+}
+
+\title{$booktitle$ - $lastupdate$}
+\author{$bookauthors$}
+
+\begin{document}
+
+\noindent {\huge\textit{\textbf{$chapter-number$}}}
+
+\vspace{1cm}
+
+\noindent {\huge\it $title$}
+
+\vspace{1.5cm}
+
+$body$
+
+$endif$
 
 \end{document}
