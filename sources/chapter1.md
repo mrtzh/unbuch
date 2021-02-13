@@ -47,6 +47,14 @@ $$
   \langle x, y \rangle \le \|x\|\cdot\|y\| 
 $$
 
+You can define macros using standard latex syntax in
+`templates/shared-macros.tex`. This will rener in both pdf and html. Here is the
+use of some such macros:
+
+$$
+  \E[X] = \sum_x x\cdot \Pr[X=x]
+$$
+
 
 # Custom environments
 
