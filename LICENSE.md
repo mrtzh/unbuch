@@ -1,4 +1,4 @@
-Copyright (c) 2019 Solon Barocas, Moritz Hardt, Arvind Narayanan
+Copyright (c) 2021 Moritz Hardt
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

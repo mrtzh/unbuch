@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -13,20 +22,31 @@
 <body>
 <article>
 <header>
-<div id="chapter">Chapter 2</div>
+<div id="chapter">2</div>
 <h1 class="title">Dolor sit amet</h1>
 </header>
-<nav id="TOC">
-<div id="menuToggle">
-<a class="toggle" tabindex="0" ><img src="assets/hamburger_icon.svg" alt="hamburger" id="hamburger"></a>
-<a id="index" href="index.html"><img src="assets/home.png" alt="home" id="home"></a>
-<ul>
-<li><a href="#class-aptent-taciti-sociosqu">Class aptent taciti sociosqu</a></li>
-<li><a href="#phasellus-sed-ipsum-non-nulla-sagittis-cursus">Phasellus sed ipsum non nulla sagittis cursus</a></li>
-<li><a href="#ut-pretium-justo-luctus-semper-facilisis">Ut pretium, justo luctus semper facilisis</a></li>
-</ul>
+
+
+
+<div id="collapsiblemenu">
+  <button class="collapsible">
+    <div class="shortthickbar"></div>
+    <div class="shortthickbar"></div>
+    <div class="shortthickbar"></div>
+  </button>
+  <div class="content">
+    <ul>
+    <li><a href="index.html">Home</a></li>
+    </ul>
+    <ul>
+    <li><a href="#class-aptent-taciti-sociosqu">Class aptent taciti sociosqu</a></li>
+    <li><a href="#phasellus-sed-ipsum-non-nulla-sagittis-cursus">Phasellus sed ipsum non nulla sagittis cursus</a></li>
+    <li><a href="#ut-pretium-justo-luctus-semper-facilisis">Ut pretium, justo luctus semper facilisis</a></li>
+    </ul>
+  </div>
 </div>
-</nav>
+
+
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pellentesque est, in finibus sapien. Fusce eget enim dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam ac commodo nulla, eu laoreet risus. Nunc luctus nisl erat, in cursus sem malesuada sit amet. Aliquam erat volutpat. Mauris est lectus, eleifend eu urna ut, aliquet pulvinar tellus. Nulla varius consectetur leo quis laoreet. Nullam commodo volutpat sem, sit amet pharetra arcu.</p>
 <p>Ut pretium, justo luctus semper facilisis, risus mi interdum erat, ac sollicitudin nisl nisl sit amet elit. Quisque varius lorem in eros porttitor, eu consequat erat sodales. Mauris tincidunt tincidunt felis quis ullamcorper. Mauris eget ante id purus lobortis aliquam. Mauris efficitur dapibus lorem, nec gravida dolor lacinia a. Morbi sodales felis vel nunc mollis cursus. Duis ut efficitur est. Sed iaculis egestas aliquet. Fusce nec arcu condimentum, sodales ipsum sed, semper mauris. Morbi nec sollicitudin leo.</p>
 <p>Etiam porttitor porttitor congue. Suspendisse potenti. Vestibulum ac turpis nec ante lobortis fermentum. Aenean consequat turpis ligula, in dictum turpis vestibulum nec. Ut vestibulum faucibus augue at eleifend. Etiam ullamcorper augue ut leo aliquam, ut imperdiet nunc pretium. Morbi sit amet dui a erat viverra venenatis sed eget augue. Sed sit amet accumsan metus. Fusce eget diam quis orci sagittis laoreet sed sit amet lectus. Vivamus imperdiet metus sed lectus luctus, nec pharetra enim fermentum. Nam et dictum tortor. Suspendisse volutpat diam quis suscipit finibus. In magna neque, consectetur in sagittis vel, viverra eu massa.</p>
@@ -51,9 +71,29 @@
 <p>Risus mi interdum erat, ac sollicitudin nisl nisl sit amet elit. Quisque varius lorem in eros porttitor, eu consequat erat sodales. Mauris tincidunt tincidunt felis quis ullamcorper. Mauris eget ante id purus lobortis aliquam. Mauris efficitur dapibus lorem, nec gravida dolor lacinia a. Morbi sodales felis vel nunc mollis cursus. Duis ut efficitur est. Sed iaculis egestas aliquet. Fusce nec arcu condimentum, sodales ipsum sed, semper mauris. Morbi nec sollicitudin leo.</p>
 <p>Etiam massa nisi, hendrerit id nunc euismod, maximus scelerisque nunc. Nunc nec tincidunt nunc. Duis sollicitudin tellus in quam accumsan euismod. Ut commodo sodales leo nec porta. Pellentesque luctus, sapien id fermentum venenatis, mi tortor eleifend dui, vel vestibulum nibh est at ante. Curabitur sed dui at orci egestas accumsan. Quisque at lobortis orci. Phasellus urna ipsum, suscipit vel blandit elementum, dictum ac lectus. Mauris et est est. Curabitur euismod augue massa. Aliquam porta, mauris sit amet tempus vehicula, turpis tortor ullamcorper elit, eget faucibus nisl nibh in felis.</p>
 </section>
+
 <div id="lastupdate">
-Last updated: Sun Jun  7 08:46:45 PDT 2020
+Last updated: Fri 12 Feb 2021 07:50:24 PM PST
 </div>
 </article>
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
 </body>
 </html>

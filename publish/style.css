@@ -1,6 +1,6 @@
 /* 
- Modification of tufte-css:
- https://github.com/edwardtufte/tufte-css
+ * Modification of tufte-css
+ * Source and credit: https://github.com/edwardtufte/tufte-css
  */
 
 @charset "UTF-8";
@@ -19,30 +19,29 @@ body {
     counter-reset: sidenote-counter figure-counter; 
 }
 
-h1, h2, h3 {
-    font-weight: 400;
+h1, h2, h3, #chapter {
+    font-family: Palatino;
+    font-weight: 100;
     color: #333;
+    font-style: italic;
+
 }
 
 #chapter {
-    color: #dedede;
-    letter-spacing: 0.75rem;
-    font-variant: small-caps;
-    font-weight: bold;
-    font-size: 5.5rem;
-}
-
-h1, h2 {
-    font-style: italic;
+    margin-top: 25px;
+    font-size: 4rem;
+    font-weight: 900;
 }
 
 h1.title {
+     margin-top:0;
      font-size: 3.5rem;
+     margin-bottom:6rem;
 }
 
 h1 { 
-     padding-top: 2.5rem;
-     font-size: 2.5rem; 
+     padding-top: 2.3rem;
+     font-size: 2.3rem; 
 }
 
 h2 {
@@ -50,7 +49,7 @@ h2 {
      font-size: 2rem;
 }
 
-p, ol, ul, blockquote { 
+p, ol, ul, blockquote, .references { 
     font-size: 1.4rem;
     line-height: 2.4rem;
     margin-top: 2rem;
@@ -121,18 +120,19 @@ figcaption {
     clear: both;
 }
 
-.sidenote-number { counter-increment: sidenote-counter; }
+.sidenote-number { counter-increment: sidenote-counter; color:#4682B4;}
 
 figcaption { counter-increment: figure-counter; }
 
 .sidenote-number:after, .sidenote:before { 
     content: counter(sidenote-counter) " ";
     position: relative;
+    color:#4682B4;
     vertical-align: baseline; 
 }
 
 figcaption:before  { 
-    content: "Figure: " counter(figure-counter) " ";
+    content: "Figure " counter(figure-counter) ": ";
     position: relative;
     vertical-align: baseline;
     clear: right;
@@ -141,21 +141,26 @@ figcaption:before  {
 
 .sidenote-number:after { 
     content: counter(sidenote-counter);
+    font-family: monospace;
     font-size: 1rem;
     top: -0.5rem;
     left: 0.1rem; 
 }
 
 .sidenote:before { 
-    content: counter(sidenote-counter) " ";
-    top: -0.5rem; 
+    content: counter(sidenote-counter) ":";
+    /* top: -0.4rem; */
+    font-family:monospace;
+    margin-right:0.3rem;
 }
 
-p, footer, pre { width: 60%; }
+p, footer, pre, .references { width: 60%; }
 
 ol, ul { width: 55%; }
 
-ul ul, ul ol, ol ul, ol ol { width: 100%; }
+ul ul, ul ol, ol ul, ol ol, li p { width: 100%; margin-top:0px; }
+
+.csl-entry { margin-left:2em; text-indent: -2em;}
 
 div.fullwidth, table.fullwidth { width: 100%; }
 
@@ -170,7 +175,7 @@ pre {
 
 code, pre { 
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-    font-size: 1.0rem;
+    font-size: 1.4rem;
     line-height: 1.42;
 }
 
@@ -192,12 +197,7 @@ pre.code.fullwidth { width: 90%; }
 /* The default x-height for code is slightly too large in side notes */
 .marginnote code, .sidenote code { font-size: 0.9rem; }
 
-
-#TOC li { margin:0; padding:0; }
-
 #lastupdate { margin-top:2.1rem; }
-
-#refs p { width: 90%; }
 
 table {
     min-width: 400px;
@@ -291,7 +291,7 @@ code > span.cv { color: #93A1A1; font-weight: normal; font-style: italic; } /* C
 code > span.in { color: #93A1A1; font-weight: normal; font-style: italic; } /* Information */
 
 /* 
- * CSS file for numenvs.py filter.
+ * Stylesheet for environments created by numenvs.py filter.
  */ 
 
 .numenv {
@@ -379,162 +379,168 @@ code > span.in { color: #93A1A1; font-weight: normal; font-style: italic; } /* I
   }
 }
 
+.numenv.Algorithm {
+  padding: 5px;
+  border: 2px solid #ddd;
+  border-top-left-radius: 10px;
+}
+
+.numenv.Algorithm .title {
+  font-family:monospace;
+}
+
+.numenv .title {
+  border: none;
+}
 /*
- * Made by Erik Terwan
- * 24th of November 2015
- * MIT License
- *
- *
- * If you are thinking of using this in
- * production code, beware of the browser
- * prefixes.
+ * Stylesheet controlling the behavior and look of the collapsible side panel.
  */
 
- /*
-  * Make this absolute positioned
-  * at the top left of the screen
-  * The box that contains the list.
-  */
-
-#TOC {
-  position:absolute;
-}
-
-#TOC ul {
-   border:1px solid #eee;
-   border-top-right-radius: 10px;
-   border-bottom-right-radius: 10px;
-   position:fixed;
-   top: 50px;
-   background: #eee;
-   /* width: 115px;
-   margin: 15px 0 0 -50px;
-   padding: 0 20px 20px 20px;
-   padding-right: 30px;
-   text-decoration: none; */
-   list-style-type: none;
-   -webkit-font-smoothing: antialiased;
-   opacity: 0;
-   visibility: hidden;
-   transition: visibility 2s;
-   overflow: auto;
-   z-index:-1;
- }
-
- #TOC ul li {
-   text-decoration: none;
-   padding: 15px 0px 0px 5px;
-   font-size: 1.3rem;
- }
-
- #TOC ul li:last-child {
-   padding-bottom: 20px;
- }
-
-#TOC ul li a
-{
-  font-size: 1.3rem;
-  transition: color 0.3s ease;
-}
-
-#TOC a.toggle {
-  font-size:30px;
-  cursor:pointer;
+#collapsiblemenu {
   position:fixed;
-  top:20px;
-  left:15px;
-  z-index: 3;
-}
-
-#menuToggle
-{
-  display: block;
-  position: fixed;
-  top: 25px;
-  left: 60px;
-  z-index: 2;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-
-}
-
-#menuToggle a.toggle:focus {
-    outline:none;
-    pointer-events: none;
-    cursor: pointer;
-}
-
-#menuToggle a.toggle:focus ~ ul
-{
-  outline:none;
-  cursor: pointer;
-  opacity: 1;
-  z-index: 3;
-  visibility: visible;
-}
-
-@media (max-width: 760px) {
-  #TOC {
-     display: none;
-  }
-
-}
-
-/*@media (min-width: 800px) and (max-width: 949px) { */
-@media (min-width: 761px) {
-  #TOC ul {
-     position:fixed;
-     width: 250px;
-     margin: 15px 0 0 -60px;
-     padding: 0 5px 0 5px;
-   }
-}
-
-/*
-@media (min-width: 950px) and (max-width: 1130px) {
-  #TOC ul {
-     position:fixed;
-     width: 100px;
-     margin: 15px 0 0 -50px;
-     padding: 0 20px 20px 15px;
-   }
-}
-
-@media (min-width: 1171) and (max-width: 1399px) {
-  #TOC ul {
-     position:fixed;
-     width: 215px;
-     margin: 15px 0 0 -50px;
-     padding: 0 20px 20px 20px;
-   }
-}
-
-@media (min-width: 1400px) {
-  #TOC ul {
-     position:fixed;
-     width: 245px;
-     margin: 15px 0 0 -50px;
-     padding: 0 20px 20px 20px;
-   }
-}
-*/
-#index {
-  position:fixed;
-  top: 18px;
-  left: 57px;
-  border:none;
-  z-index:2;
-}
-
-a img {
-  width:33px;
-  height:33px;
+  left: 0px;
+  top: 0px;
+  width:300px;
+  z-index:99;
 }
 
 @media (max-width: 860px) {
-  #index {
+  #collapsiblemenu {
      display: none;
   }
+}
 
+#collapsiblemenu .collapsible {
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  background:none;
+}
+
+#collapsiblemenu .active {
+  background-color: #f1f1f1;
+}
+
+
+#collapsiblemenu ul, #collapsiblemenu li {
+  margin-top:0;
+  padding-top:0;
+  width:250px;
+}
+
+#collapsiblemenu .content {
+  margin-left:-20px;
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  border-bottom-right-radius: 25px;
+}
+
+#collapsiblemenu .shortthickbar {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  border-radius:3px;
+}
+
+#collapsiblemenu ul > li > ul {
+  display:none;
+}
+/*
+ * Stylesheet controlling the look of the front page at index.html
+ */
+
+
+.booktitle {
+  color:#222;
+  font-size: 3.8rem;
+  font-style: normal;
+  text-transform: uppercase;
+  font-family:monospace;
+  margin-bottom:0;
+}
+
+.booksubtitle {
+  font-size:3rem;
+  font-style: normal;
+  margin:0;
+  font-family:monospace;
+}
+
+.bookauthor {
+  font-size:3.5rem;
+  margin:40px 0;
+  margin-bottom:80px;
+}
+
+.bookcontents {
+  font-size:3rem;
+}
+
+.booklink {
+  font-size:2.5rem;
+}
+
+#frontpage ul {
+  width:100%;
+}
+
+#frontpage ol li {
+  font-size:1.8rem;
+}
+
+#frontpage ul li {
+  font-size:2rem;
+  list-style: none;
+  padding:10px 0;
+}
+
+#frontpage ol {
+  width:100%;
+  padding-left:0px;
+  list-style: none;
+  counter-reset: my-awesome-counter;
+}
+#frontpage ol li {
+  counter-increment: my-awesome-counter;
+}
+#frontpage ol li::before {
+  content: counter(my-awesome-counter) " ";
+  color: #ccc;
+  font-weight: bold;
+  padding-right:10px;
+  text-align:right;
+}
+
+a:hover {
+  background-color: #FDF6E3;
+}
+
+@media (max-width: 860px) {
+  .booktitle {
+    font-size:2.5rem;
+  }
+  .booksubtitle {
+    font-size:2rem;
+  }
+  .bookauthor {
+    font-size:2.3rem;
+  }
+  .bookcontents {
+    font-size:2rem;
+  }
+  .booklink {
+    font-size:1.65rem;
+  }
+  #frontpage li {
+    padding-top:0px;
+    font-size:1.65rem;
+  }
 }
