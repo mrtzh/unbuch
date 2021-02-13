@@ -2,9 +2,7 @@
 booktitle = Book title
 booksubtitle = Book subtitle
 bookauthors = Author 1, Author 2
-titlepagemidnote = Incomplete working draft --- DO NOT SHARE
-titlepagefootnote = Latest public version available at \url{about:blank}
-bookpdffilename = book.pdf
+bookfilename = book
 
 # Add all sources that need to compile to some html page
 SOURCES := sources/index.md \
@@ -17,101 +15,140 @@ CHAPTERS := sources/chapter1.md \
             sources/chapter2.md \
             sources/chapter3.md \
 
-# Add all style files you're using.
+
+################################################################################
+#                        DO NOT EDIT BELOW THIS COMMENT                        #
+################################################################################
+
+# All style files you're using.
 STYLES := css/tufte.css \
           css/pandoc.css \
           css/pandoc-solarized.css \
           css/numenvs.css \
           css/navbar.css \
-          css/index.css \
+          css/frontpage.css \
 
-# DO NOT EDIT BELOW THIS COMMENT
+# Collect assets to be copied for html version.
+WEBASSETS := $(wildcard assets/*.svg assets/*.jpg assets/*.png)
 
-ASSETS := $(wildcard assets/*)
+# Create targets for each web asset.
+WEBTARGETS = $(patsubst %,publish/%,$(WEBASSETS))
+
+FILTERS := $(wildcard filters/*.py)
 
 HTMLTARGETS := $(patsubst sources/%.md,publish/%.html,$(SOURCES))
 
 PDFTARGETS := $(patsubst sources/%.md,publish/pdf/%.pdf,$(CHAPTERS))
 
 .PHONY: all
-all: html pdf style
+all: html pdf
 
-html: $(HTMLTARGETS) assets
+html: $(WEBTARGETS) $(HTMLTARGETS) publish/index.html publish/style.css
 
-pdf: publish/pdf/$(bookpdffilename) $(PDFTARGETS)
+pdf: publish/pdf/$(bookfilename).pdf $(PDFTARGETS)
 
-assets: $(ASSETS)
-	cp -R assets publish
+publish/assets/%: assets/%
+	cp $< $@;
 
-style: $(STYLES)
+publish/style.css: $(STYLES)
 	cat $(STYLES) > publish/style.css;
 
-## Generalized rule: how to build a .html file from each .md
-## For technical reasons, this uses two pandoc passes:
-## Step 1: Expands citations into markdown footnotes.
-## Step 2: Convert preprocessed files to html.
-publish/%.html: sources/%.md templates/tufte.html5 $(STYLES) Makefile references.bib
-	pandoc \
+
+## Rule to create individual HTML chapters from markdown
+publish/%.html: sources/%.md templates/tufte.html5 Makefile $(FILTERS) references.bib templates/shared-macros.tex
+	pandoc templates/shared-macros.tex $< \
+    --to html5 \
+    --katex \
+    --citeproc \
+    --template templates/tufte.html5 \
     --csl=templates/chicago-fullnote-bibliography.csl \
+    --metadata link-citations=false \
     --bibliography=references.bib \
-    --template=templates/page.md \
-    -t markdown-citations $< | \
-  pandoc \
     --strip-comments \
     --katex \
-    --toc-depth=2 \
-    --from markdown-markdown_in_html_blocks+raw_html+tex_math_single_backslash \
+    --from markdown+smart \
     --section-divs \
     --table-of-contents \
+    --toc-depth=2 \
+    --filter ./filters/whitespace.py \
     --filter ./filters/sidenote.py \
     --filter ./filters/numenvs.py \
-    --to html5 \
+    --filter ./filters/crossrefs.py \
     --css style.css \
     --variable lang="en" \
     --variable lastupdate="`date -r $<`" \
     --variable references-section-title="References" \
-    --template templates/tufte.html5 \
-    --output $@; \
-  cat $(STYLES) > publish/style.css; \
+    --output $@;
 
-## Rule to create individual pdf chapters.
-## Step 1: Expands citations into markdown footnotes.
-## Step 2: Convert preprocessed files to pdf.
-publish/pdf/%.pdf: sources/%.md 
-	pandoc \
-    --csl=templates/chicago-fullnote-bibliography.csl \
+
+## Special rule to make the index page
+publish/index.html: sources/index.md templates/index.html5 Makefile $(FILTERS)
+	pandoc $< \
+    --strip-comments \
+    --toc-depth=2 \
+    --from markdown+smart \
+    --section-divs \
+    --table-of-contents \
+    --to html5 \
+    --css style.css \
+    --variable lang="en" \
+    --variable lastupdate="`date -r $<`" \
+    --template templates/index.html5 \
+    --output $@;
+
+
+## Rule to create individual PDF chapters from markdown
+publish/pdf/%.pdf: sources/%.md templates/book.tex Makefile $(FILTERS) references.bib templates/shared-macros.tex
+	pandoc $< \
+    --citeproc \
     --bibliography=references.bib \
-    --template=templates/page.md \
-    -t markdown-citations $< | \
-  pandoc \
+    --csl=templates/chicago-fullnote-bibliography.csl \
+    --metadata link-citations=false \
+    --filter ./filters/whitespace.py \
     --filter ./filters/numenvs.py \
+    --filter ./filters/crossrefs.py \
+    --filter ./filters/sidenote.py \
+    --variable chapter-layout=true \
     --variable booktitle="${booktitle}" \
     --variable booksubtitle="${booksubtitle}" \
     --variable bookauthors="${bookauthors}" \
     --variable lastupdate="`date -r $< +%Y-%m-%d`" \
-    --template templates/chapter.tex \
+    --template templates/book.tex \
     --output $@; \
 
-## Rule to create pdf book.
+
+## Rule to create PDF book.
 ## Step 1: Give each markdown file a chapter heading.
-## Step 2: Compile into pdf using pandoc.
-publish/pdf/$(bookpdffilename): $(SOURCES) templates/book.tex Makefile references.bib
+## Step 2: Compile markdown sources into tex using pandoc
+## Step 3: Compile tex sources using pdflatex
+publish/pdf/$(bookfilename).pdf: $(CHAPTERS) templates/book.tex templates/references.md Makefile $(FILTERS) templates/shared-macros.tex references.bib
 	$(foreach chapter,$(CHAPTERS),\
       pandoc --template templates/chapter.md $(chapter) \
       --id-prefix=$(notdir $(chapter)) \
       --output tmp-$(notdir $(chapter));) \
-  pandoc \
-    --filter filters/numenvs.py \
+    pandoc \
+    --citeproc \
     --bibliography=references.bib \
     --csl=templates/chicago-fullnote-bibliography.csl \
+    --metadata link-citations=false \
+    --filter ./filters/whitespace.py \
+    --filter ./filters/numenvs.py \
+    --filter ./filters/crossrefs.py \
+    --filter ./filters/svgimagext.py \
+    --filter ./filters/sidenote.py \
     --template templates/book.tex \
+    --variable book-layout=true \
     --variable lastupdate="`date`" \
     --variable booktitle="${booktitle}" \
     --variable booksubtitle="${booksubtitle}" \
     --variable bookauthors="${bookauthors}" \
     --variable titlepagemidnote="${titlepagemidnote}" \
     --variable titlepagefootnote="${titlepagefootnote}" \
-    --output publish/pdf/$(bookpdffilename) \
-    $(foreach chapter,$(CHAPTERS),tmp-$(notdir $(chapter))) sources/references.md; \
-  $(foreach chapter,$(CHAPTERS),rm tmp-$(notdir $(chapter));) \
-
+    --output publish/pdf/$(bookfilename).tex \
+    $(foreach chapter,$(CHAPTERS),tmp-$(notdir $(chapter))) templates/references.md; \
+    $(foreach chapter,$(CHAPTERS),rm tmp-$(notdir $(chapter));) \
+    pdflatex publish/pdf/$(bookfilename).tex; \
+    pdflatex publish/pdf/$(bookfilename).tex; \
+    mv $(bookfilename).pdf publish/pdf; \
+    rm $(bookfilename).* ; \
+    rm publish/pdf/$(bookfilename).tex
