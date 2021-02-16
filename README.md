@@ -81,7 +81,8 @@ all chapters as html and pdf, as well as the whole book as pdf.
 
 Example usage in markdown:
 
-```This is a first paragraph.[^note1]
+```
+This is a first paragraph.[^note1]
 
 [^note1]:
   {-} This is an unnumbered margin note.
