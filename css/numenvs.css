@@ -55,18 +55,6 @@
   padding: 0px;
 }
 
-.numenv.Summary {
-  background-color: #fffff8;
-  margin: 50px 0px;
-  padding: 1% 5%;
-  width: 50%;
-}
-
-.numenv.Summary .title {
-  padding: 0px;
-  padding-right: 5px;
-}
-
 .numenv.fullwidth, .numenv.fullwidth table {
   width: 100%;
 }
