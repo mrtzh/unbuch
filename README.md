@@ -1,6 +1,6 @@
 # Unbuch
 
-A pandoc setup to compile a book from markdown sources into html pages and pdf based on pandoc and python filters.
+A simple pandoc setup to compile a book from markdown sources into html pages and pdf.
 
 Features:
 
@@ -8,7 +8,7 @@ Features:
 * Latex formulas via katex plugin
 * Custom Environments
 * Cross references
-* HTML pages, individual PDF chapter, PDF book
+* HTML pages, individual PDF chapters, PDF book
 
 ## Examples of major projects in Unbuch
 
