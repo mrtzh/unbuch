@@ -22,8 +22,6 @@ CHAPTERS := sources/chapter1.md \
 
 # All style files you're using.
 STYLES := css/tufte.css \
-          css/pandoc.css \
-          css/pandoc-solarized.css \
           css/numenvs.css \
           css/navbar.css \
           css/frontpage.css \
