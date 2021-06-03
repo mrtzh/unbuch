@@ -3,11 +3,11 @@
 """
 Minimal cross references.
 
-Create a reference by writing `@{kind:name}`, e.g., `@{theorem:main}`,
+Create a reference by writing `!{kind:name}`, e.g., `!{theorem:main}`,
 anywhere outside math or code environments.
 
-Use reference with the same syntax, e.g., `Theorem @{theorem:main}`.
-Another reference of the form `@{theorem:second}` will increment `theorem`
+Use reference with the same syntax, e.g., `Theorem !{theorem:main}`.
+Another reference of the form `!{theorem:second}` will increment `theorem`
 counter.
 
 Example:
@@ -15,7 +15,7 @@ Example:
 ```
 Next we're going to see a deep theorem.
 
-@{thm:deep}
+!{thm:deep}
 
 begin+Theorem
 
@@ -23,7 +23,7 @@ begin+Theorem
 
 end+Theorem
 
-We saw in Theorem @{thm:deep} that $1+1=2$.
+We saw in Theorem !{thm:deep} that $1+1=2$.
 ```
 """
 
@@ -40,7 +40,7 @@ def parse(crossrefs, string):
 
     number = 1
 
-    match = re.search("@{(.*)}", string)
+    match = re.search("!{(.*)}", string)
 
     if match:
         crossref = match.group(1)
@@ -48,7 +48,7 @@ def parse(crossrefs, string):
         try:
             kind, name = crossref.split(':')
         except:
-            raise ValueError("Reference must be of the form `@{kind:name}`.")
+            raise ValueError("Reference must be of the form `!{kind:name}`.")
 
         if kind in crossrefs:
             if name in crossrefs[kind]:
@@ -83,7 +83,7 @@ def cross_refs(key, value, fmt, meta):
         t, s = value
         crossref, string = parse(crossrefs, s)
         if crossref:
-            s = s.replace('@{' + crossref + '}', string)
+            s = s.replace('!{' + crossref + '}', string)
             return Math(t, s)
 
 

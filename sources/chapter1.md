@@ -128,11 +128,11 @@ Tables work just as they would in pandoc markdown. Nothing is different here.
 
 # Cross references
 
-Unbuch offers a minimalistic syntax for cross references. These aren't full-fledged latex cross references and don't work the same way. You can introduce a cross reference at any point by writing `@{counter:name}`. This will assign a number. You can retrieve this number by writing `@{counter:name}` again later on. You can increment the counter by using the same counter multiple times, e.g., by writing `@{theorem:abc}` and `@{theorem:planar}`. Here's an example:s
+Unbuch offers a minimalistic syntax for cross references. These aren't full-fledged latex cross references and don't work the same way. You can introduce a cross reference at any point by writing `!{counter:name}`. This will assign a number. You can retrieve this number by writing `!{counter:name}` again later on. You can increment the counter by using the same counter multiple times, e.g., by writing `!{theorem:abc}` and `!{theorem:planar}`. Here's an example:s
 
 This markdown snippet will turn out as follows:
 
-@{thm:something}
+!{thm:something}
 
 begin-Theorem
 
@@ -140,7 +140,7 @@ Curabitur at vestibulum velit. Ut ac turpis purus.
 
 end-Theorem
 
-@{thm:deep}
+!{thm:deep}
 
 begin+Theorem
 
@@ -148,13 +148,13 @@ $1 + 1 = 2$
 
 end+Theorem
 
-We saw in Theorem @{thm:deep} that $1+1=2$.
+We saw in Theorem !{thm:deep} that $1+1=2$.
 
 
 This also works with equations.
 
-@{eq:blah}
+!{eq:blah}
 
 $$
-1 + 1 = 2\qquad(@{eq:blah})
+1 + 1 = 2\qquad(!{eq:blah})
 $$

@@ -70,8 +70,8 @@ publish/%.html: sources/%.md templates/tufte.html5 Makefile $(FILTERS) reference
     --toc-depth=2 \
     --filter ./filters/whitespace.py \
     --filter ./filters/sidenote.py \
-    --filter ./filters/numenvs.py \
     --filter ./filters/crossrefs.py \
+    --filter ./filters/numenvs.py \
     --css style.css \
     --variable lang="en" \
     --variable lastupdate="`date -r $<`" \
@@ -105,6 +105,7 @@ publish/pdf/%.pdf: sources/%.md templates/book.tex Makefile $(FILTERS) reference
     --filter ./filters/whitespace.py \
     --filter ./filters/numenvs.py \
     --filter ./filters/crossrefs.py \
+    --filter ./filters/svgimagext.py \
     --filter ./filters/sidenote.py \
     --variable chapter-layout=true \
     --variable booktitle="${booktitle}" \
@@ -112,7 +113,11 @@ publish/pdf/%.pdf: sources/%.md templates/book.tex Makefile $(FILTERS) reference
     --variable bookauthors="${bookauthors}" \
     --variable lastupdate="`date -r $< +%Y-%m-%d`" \
     --template templates/book.tex \
-    --output $@; \
+    --output tmpchapter.tex; \
+    pdflatex tmpchapter.tex; \
+    pdflatex tmpchapter.tex; \
+    mv tmpchapter.pdf $@; \
+    rm tmpchapter.* ; \
 
 
 ## Rule to create PDF book.
