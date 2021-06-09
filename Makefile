@@ -113,11 +113,11 @@ publish/pdf/%.pdf: sources/%.md templates/book.tex Makefile $(FILTERS) reference
     --variable bookauthors="${bookauthors}" \
     --variable lastupdate="`date -r $< +%Y-%m-%d`" \
     --template templates/book.tex \
-    --output tmpchapter.tex; \
-    pdflatex tmpchapter.tex; \
-    pdflatex tmpchapter.tex; \
-    mv tmpchapter.pdf $@; \
-    rm tmpchapter.* ; \
+    --output tmp_$*.tex; \
+    pdflatex tmp_$*.tex; \
+    pdflatex tmp_$*.tex; \
+    mv tmp_$*.pdf $@; \
+    rm tmp_$*.* ; \
 
 
 ## Rule to create PDF book.

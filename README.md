@@ -17,7 +17,7 @@ Features:
 
 ## Getting started
 
-1. Install [pandoc](https://pandoc.org/) v2.14 (exact version requirement)
+1. Install [pandoc](https://pandoc.org/) **v2.14** (exact version requirement)
 2. Make sure you have python 3.5+ installed with [pandocfilters](https://github.com/jgm/pandocfilters) package
 3. Clone the repository
 4. Customize your book by setting up variables in `Makefile`.
@@ -32,7 +32,7 @@ Find the compiled results in `publish/` directory.
 - `pandoc` 2.14 (**strict: must be version 2.14**)
 - `python` 3.5 or higher with `pandocfilters` installed
 
-Note: Every new release of `pandoc` since version 2.10 has broken the compile process due to changes to `citeproc`. Getting things to run with a different version of `pandoc` is certainly possible, but may require changes, primarily to the latex template
+Note: Every new release of `pandoc` since version 2.10 has broken the compile process due to changes in the way that pandoc handles citations. Getting things to run with a different version of `pandoc` is certainly possible, but may require changes, primarily to the latex template located at `templates/book.tex`. The issue is typically with the latex environments related to `cslreferences`. Copy and paste from the latex template corresponding to your pandoc version as is necessary.  
 
 ## Special files and folders
 
