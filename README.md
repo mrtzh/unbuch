@@ -123,11 +123,11 @@ The `begin` and `end` statements must be at the beginning of a new paragraph eac
 
 ## Cross references
 
-Create a reference by writing `@{kind:name}`, e.g., `@{theorem:main}`,
+Create a reference by writing `!{kind:name}`, e.g., `!{theorem:main}`,
 anywhere outside math or code environments.
 
-Use reference with the same syntax, e.g., `Theorem @{theorem:main}`.
-Another reference of the form `@{theorem:second}` will increment `theorem`
+Use reference with the same syntax, e.g., `Theorem !{theorem:main}`.
+Another reference of the form `!{theorem:second}` will increment `theorem`
 counter.
 
 Example:
@@ -135,7 +135,7 @@ Example:
 ```
 Next we're going to see a deep theorem.
 
-@{thm:deep}
+!{thm:deep}
 
 begin+Theorem
 
@@ -143,10 +143,10 @@ $1 + 1 = 2$
 
 end+Theorem
 
-We saw in Theorem @{thm:deep} that $1+1=2$.
+We saw in Theorem !{thm:deep} that $1+1=2$.
 ```
 
-NOTE: This way of doing references is NOT equivalent to the way pdflatex does it. In particular, references don't automatically match to the correct number of the Theorem environment. Instead every numbered theorem has to be prefixed with an `@{thm:name}` expression for this to work.
+NOTE: This way of doing references is NOT equivalent to the way pdflatex does it. In particular, references don't automatically match to the correct number of the Theorem environment. Instead every numbered theorem has to be prefixed with an `!{thm:name}` expression for this to work.
 
 ## Math formulas
 
