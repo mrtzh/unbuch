@@ -57,7 +57,6 @@ publish/%.html: sources/%.md templates/tufte.html5 Makefile $(FILTERS) reference
 	pandoc templates/shared-macros.tex $< \
     --to html5 \
     --katex \
-    --citeproc \
     --template templates/tufte.html5 \
     --csl=templates/chicago-fullnote-bibliography.csl \
     --metadata link-citations=false \
@@ -98,7 +97,6 @@ publish/index.html: sources/index.md templates/index.html5 Makefile $(FILTERS)
 ## Rule to create individual PDF chapters from markdown
 publish/pdf/%.pdf: sources/%.md templates/book.tex Makefile $(FILTERS) references.bib templates/shared-macros.tex
 	pandoc $< \
-    --citeproc \
     --bibliography=references.bib \
     --csl=templates/chicago-fullnote-bibliography.csl \
     --metadata link-citations=false \
@@ -130,7 +128,6 @@ publish/pdf/$(bookfilename).pdf: $(CHAPTERS) templates/book.tex templates/refere
       --id-prefix=$(notdir $(chapter)) \
       --output tmp-$(notdir $(chapter));) \
     pandoc \
-    --citeproc \
     --bibliography=references.bib \
     --csl=templates/chicago-fullnote-bibliography.csl \
     --metadata link-citations=false \
