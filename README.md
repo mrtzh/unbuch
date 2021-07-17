@@ -18,10 +18,11 @@ Features:
 ## Getting started
 
 1. Install [pandoc](https://pandoc.org/) **v2.14** (exact version requirement)
-2. Make sure you have python 3.5+ installed with [pandocfilters](https://github.com/jgm/pandocfilters) package
-3. Clone the repository
-4. Customize your book by setting up variables in `Makefile`.
-5. Type `make` to build both pdf and html files.
+2. Make sure you have python 3.5+ installed. 
+3. Clone the repository.
+4. Install dependencies with `pip3 install -r requirements.txt`.
+5. Customize your book by setting up variables in `Makefile`.
+6. Type `make` to build both pdf and html files.
   - To build html only, type `make html`.
   - To build pdf only, type `make pdf`.
 
