@@ -44,7 +44,7 @@ def parse(crossrefs, string):
 
     if match:
         crossref = match.group(1)
-
+        
         try:
             kind, name = crossref.split(':')
         except:
@@ -77,6 +77,7 @@ def cross_refs(key, value, fmt, meta):
     if key == 'Str':
         crossref, string = parse(crossrefs, value)
         if crossref:
+            string = value.replace('!{' + crossref + '}', string)
             return Str(string)
 
     if key == 'Math':
